@@ -26,7 +26,7 @@ int FileSetting::lineCount(std::fstream& file, std::string fileName)
 	}
 	for (int i = 0; i < line.size(); i++)
 	{
-		if (line[i] == (32) && isDigits(line[i-1] == false))
+		if (line[i] == ' ')
 			lineCount++;
 	}
 	file.close();
