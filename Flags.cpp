@@ -28,9 +28,9 @@ int FileSetting::wordsCount(std::fstream& file, std::string fileName)
 	return wordsCount;
 }
 
-int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
+int FileSetting::digitsInFile(std::fstream& file, std::string fileName)
 {
-	int digitsNumber = 0;
+	int digitsCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (file >> line)
@@ -38,11 +38,45 @@ int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
 		for (int i = 0; i < line.size(); i++)
 		{
 			if (isdigit(line[i]) == true)
-				digitsNumber++;
+				digitsCount++;
 		}
 	}
 	file.close();
-	return digitsNumber;
+	return digitsCount;
+}
+
+int FileSetting::numberInFile(std::fstream& file, std::string fileName)
+{
+	int numberCount = 0;
+	std::string line;
+	file.open(fileName, std::ios::in);
+	while (file >> line)
+	{
+		for (int i = 0; i < line.size(); i++)
+		{
+			if (isdigit(line[i]) == true && isdigit(line[i + 1]) == false)
+				numberCount++;
+		}
+	}
+	file.close();
+	return numberCount;
+}
+
+int FileSetting::characterCount(std::fstream& file, std::string fileName)
+{
+	int charCount = 0;
+	std::string line;
+	file.open(fileName, std::ios::in);
+	while (file >> line)
+	{
+		for (int i = 0; i < line.size(); i++)
+		{
+			if (isdigit(line[i]) == false && line[i] != ' ')
+				charCount++;
+		}
+	}
+	file.close();
+	return charCount;
 }
 
 bool FileSetting::providitedFlags(char *tab[], int argumentsCount)

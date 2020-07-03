@@ -18,7 +18,9 @@ int main(int argc, char* argv[])
             {
                 std::cout << "Otworzone pomyslnie plik!";
                 std::cout << "\nLiczba slow: " << setting.wordsCount(file, argv[2]);
-                std::cout << "\nLiczba cyfr: " << setting.numbersInFile(file, argv[2]);
+                std::cout << "\nLiczba cyfr: " << setting.digitsInFile(file, argv[2]);
+                std::cout << "\nLiczba liczb: " << setting.numberInFile(file, argv[2]);
+                std::cout << "\nLiczba liter: " << setting.characterCount(file, argv[2]);
             }
             else
                 std::cout << "Niestety nie udalo sie otworzyc pliku. Sproboj ponwonie";
