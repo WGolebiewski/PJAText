@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
             if ((setting.isFile(file, argv[2])) == true)
             {
                 std::cout << "Otworzone pomyslnie plik!";
-                std::cout << "\nLiczba slow: " << setting.lineCount(file, argv[2]);
+                std::cout << "\nLiczba slow: " << setting.wordsCount(file, argv[2]);
                 std::cout << "\nLiczba cyfr: " << setting.numbersInFile(file, argv[2]);
             }
             else

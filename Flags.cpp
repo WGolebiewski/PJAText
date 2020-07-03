@@ -15,55 +15,35 @@ bool FileSetting::isFile(std::fstream& file, std::string fileName)
 	}
 }
 
-int FileSetting::lineCount(std::fstream& file, std::string fileName)
+int FileSetting::wordsCount(std::fstream& file, std::string fileName)
 {
-	int lineCount = 1;
+	int wordsCount = 0;
 	std::string line;
-	file.open(fileName);
-	while (!file.eof())
+	file.open(fileName, std::ios::in);
+	while (file >> line)
 	{
-		getline(file, line);
-	}
-	for (int i = 0; i < line.size(); i++)
-	{
-		if (line[i] == ' ')
-			lineCount++;
+		wordsCount++;
 	}
 	file.close();
-	return lineCount;
+	return wordsCount;
 }
 
 int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
 {
 	int digitsNumber = 0;
-	std::string temp;
+	std::string line;
 	file.open(fileName, std::ios::in);
-	while (!file.eof())
+	while (file >> line)
 	{
-		getline(file, temp);
-	}
-	std::vector<char>letter;
-	for (int i = 0; i < temp.size(); i++)
-	{
-		letter.push_back(temp[i]);
-	}
-	for (int i = 0; i < temp.size(); i++)
-	{
-
-		if (isDigits(letter[i]) == true)
-			digitsNumber++;
+		for (int i = 0; i < line.size(); i++)
+		{
+			if (isdigit(line[i]) == true)
+				digitsNumber++;
+		}
 	}
 	file.close();
 	return digitsNumber;
 }
-
-bool FileSetting::isDigits(char letter)
-{
-	if (isdigit(letter))
-		return true;
-	else
-		return false;
-}	
 
 bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
 {
@@ -84,10 +64,10 @@ bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
 
 void FileSetting::flagsMenu()
 {
-	std::cout << "======Menu flag======\n-->Pamietaj, zeby wybrac flage<--\n";
+	std::cout << "\n======Menu flag======\n-->Pamietaj, zeby wybrac flage<--\n";
 	std::cout << "1. Bez flagi -> wtedy wyswietli Ci sie to menu!\n";
 	std::cout << "2. -f -> nastepny argument, musi to byc nazwa pliku!\n";
 	std::cout << "3. -n -> wypisuje ilosc lini, ale trzeba podac przed tym flage -f i nazwe pliku\n";
-	std::cout << "4. -d -> wyswietla liczbe cyfr w w pliku zrodlowym, Wymagania co do zachowania programu w odniesieniu do tego pliku pozostata te same,co w poprzednich podpunktach. Dotyczy to te¿ pozostalych podpunktow.";
+	std::cout << "4. -d -> wyswietla liczbe cyfr w w pliku zrodlowym, Wymagania co do zachowania programu w odniesieniu do tego pliku pozostata te same, co w poprzednich podpunktach. Dotyczy to tez pozostalych podpunktow.";
 
 }
