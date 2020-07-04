@@ -15,7 +15,10 @@ public:
 	int wordsCount(std::fstream& file, std::string fileName); // -n
 	int digitsInFile(std::fstream& file, std::string fileName); // -d
 	int numberInFile(std::fstream& file, std::string fileName); // -dd
-	int characterCount(std::fstream& file, std::string fileName);
+	int characterCount(std::fstream& file, std::string fileName); // -c
+	bool isPalindrome(std::string name); // -p
+	std::string palindrome(std::fstream& file, std::string fileName); // -p
+	void launchFlags(std::string flagsName, int argumentsCount); // flags
 	bool providitedFlags(char *tab[], int argumentsCount);
 	void flagsMenu();
 };

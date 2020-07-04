@@ -79,19 +79,47 @@ int FileSetting::characterCount(std::fstream& file, std::string fileName)
 	return charCount;
 }
 
+std::string FileSetting::palindrome(std::fstream& file, std::string fileName)
+{
+	file.open(fileName, std::ios::in);
+	std::string line;
+	while (file >> line)
+	{
+		if (isPalindrome(line) == true)
+			std::cout << line << " ";
+		else
+			;
+	}
+
+	file.close();
+}
+
+bool FileSetting::isPalindrome(std::string name)
+{
+	if ((name == std::string(name.rbegin(), name.rend())) == true)
+		return true;
+	else
+		return false;
+}
+
+void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
+{
+	//switch case!
+}
+
 bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
 {
 	bool differenTab;
-	for (int i = 1; i < argumentsCount; i++)
+	for (int i = 0; i < argumentsCount; i++)
 	{
 		for (int j = 0; j < 13; j++)
 		{
 			if (tab[i] == flags[j])
 			{
-				return false;
+				return true;
 			}
 			else
-				return true;
+				return false;
 		}
 	}
 }
