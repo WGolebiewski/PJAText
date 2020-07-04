@@ -79,12 +79,13 @@ int FileSetting::characterCount(std::fstream& file, std::string fileName)
 	return charCount;
 }
 
-std::string FileSetting::palindrome(std::fstream& file, std::string fileName)
+std::string FileSetting::palindrome(std::fstream& file, std::string fileName, int count)
 {
 	file.open(fileName, std::ios::in);
 	std::string line;
-	while (file >> line)
+	for(int i = 0; i < count;i++)
 	{
+		file >> line;
 		if (isPalindrome(line) == true)
 			std::cout << line << " ";
 		else
@@ -109,7 +110,6 @@ void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
 
 bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
 {
-	bool differenTab;
 	for (int i = 0; i < argumentsCount; i++)
 	{
 		for (int j = 0; j < 13; j++)
