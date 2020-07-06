@@ -10,7 +10,7 @@
 class FileSetting
 {
 private:
-	std::string flags[13] = { "-f","-n","-d","-dd","-c","-a","-p","-pa","-ap","-s","-rs","-o" };
+	const std::string flags[13] = { "-f","-n","-d","-dd","-c","-a","-p","-pa","-ap","-s","-rs","-o" };
 	bool isPalindrome(std::string name);
 public:
 	bool isFile(std::fstream& file, std::string fileName); // -f and file name

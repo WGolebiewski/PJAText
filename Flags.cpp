@@ -165,6 +165,14 @@ void FileSetting::allWordsUnsortInFile(std::fstream& file, std::string fileName)
 void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
 {
 	//switch case!
+	/*switch (flagsName)
+	{
+	case flags[0]:
+		{
+
+		break;
+		}
+	}*/
 }
 
 bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
@@ -189,6 +197,14 @@ void FileSetting::flagsMenu()
 	std::cout << "1. Bez flagi -> wtedy wyswietli Ci sie to menu!\n";
 	std::cout << "2. -f -> nastepny argument, musi to byc nazwa pliku!\n";
 	std::cout << "3. -n -> wypisuje ilosc lini, ale trzeba podac przed tym flage -f i nazwe pliku\n";
-	std::cout << "4. -d -> wyswietla liczbe cyfr w w pliku zrodlowym, Wymagania co do zachowania programu w odniesieniu do tego pliku pozostata te same, co w poprzednich podpunktach. Dotyczy to tez pozostalych podpunktow.";
-
+	std::cout << "4. -d -> wyswietla liczbe cyfr w pliku zrodlowym, wymagania co do zachowania programu w odniesieniu do tego pliku pozostata te same, co w poprzednich podpunktach. Dotyczy to tez pozostalych podpunktow.";
+	std::cout << "5. -dd -> wyswietla liczbe liczb w piku zrodlowym\n";
+	std::cout << "6. -c -> wyswietla liczbe znakow w pliku zrodlowym\n";
+	std::cout << "7. -a -> po tej fladze trzeba podac liczbe wyswietlanych anagramow\n";
+	std::cout << "8. -p -> po tej fladze trzeba podac liczbe wyswietlanych palindromow\n";
+	std::cout << "9. -pa lub -ap -> w zaleznosci od kolejnosci dwoch liter wyswietla punkty 7-8 lub 8-7\n";
+	std::cout << "10. -s -> wyswietla wszystkie slowa w kolejnosci alfabetycznej\n";
+	std::cout << "10. -rs -> wyswietla wszystkie slowa w kolejnosci odwrotnej niz alfabetyczna\n";
+	std::cout << "11. -o -> flaga powinna znalezc sie na koncu flag. Wszystkie poprzednie flagi zapisuje do nowego pliku\n";
+	std::cout << "12. -i -> \n";
 }
