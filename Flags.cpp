@@ -79,7 +79,19 @@ int FileSetting::characterCount(std::fstream& file, std::string fileName)
 	return charCount;
 }
 
-std::string FileSetting::palindrome(std::fstream& file, std::string fileName, int count)
+void FileSetting::anagram(std::fstream& file, std::string fileName, int count)
+{
+	file.open(fileName, std::ios::in);
+	std::string line;
+	for (int i = 0; i < count; i++)
+	{
+		file >> line;
+		std::cout << std::string(line.rbegin(), line.rend()) << " ";
+	}
+	file.close();
+}
+
+void FileSetting::palindrome(std::fstream& file, std::string fileName, int count)
 {
 	file.open(fileName, std::ios::in);
 	std::string line;
@@ -88,19 +100,66 @@ std::string FileSetting::palindrome(std::fstream& file, std::string fileName, in
 		file >> line;
 		if (isPalindrome(line) == true)
 			std::cout << line << " ";
-		else
-			;
 	}
-
 	file.close();
 }
 
 bool FileSetting::isPalindrome(std::string name)
 {
-	if ((name == std::string(name.rbegin(), name.rend())) == true)
+	if ((name == std::string(name.rbegin(), name.rend())))
 		return true;
 	else
 		return false;
+}
+
+void FileSetting::allWordsSortInFile(std::fstream& file, std::string fileName)
+{
+	file.open(fileName, std::ios::in);
+	std::vector<std::string>words;
+	std::string line;
+	int temp = 0;
+	while (file >> line)
+	{
+		for (int i = 0; i < line.size(); i++)
+		{
+			if (isdigit(line[i]) == false)
+				temp++;
+		}
+		if (temp == line.size())
+			words.push_back(line);
+		temp = 0;
+	}
+	std::sort(words.begin(), words.end());
+	for (int i = 0; i < words.size(); i++)
+	{
+		std::cout << words[i] << " ";
+	}
+	file.close();
+}
+
+void FileSetting::allWordsUnsortInFile(std::fstream& file, std::string fileName)
+{
+	file.open(fileName, std::ios::in);
+	std::vector<std::string>words;
+	std::string line;
+	int temp = 0;
+	while (file >> line)
+	{
+		for (int i = 0; i < line.size(); i++)
+		{
+			if (isdigit(line[i]) == false)
+				temp++;
+		}
+		if (temp == line.size())
+			words.push_back(line);
+		temp = 0;
+	}
+	std::sort(words.begin(), words.end());
+	for (int i = words.size() - 1; i >= 0; i--)
+	{
+		std::cout << words[i] << " ";
+	}
+	file.close();
 }
 
 void FileSetting::launchFlags(std::string flagsName, int argumentsCount)

@@ -5,6 +5,7 @@
 #include <vector>
 #include <cctype>
 #include <sstream>
+#include <algorithm>
 
 class FileSetting
 {
@@ -17,7 +18,10 @@ public:
 	int digitsInFile(std::fstream& file, std::string fileName); // -d
 	int numberInFile(std::fstream& file, std::string fileName); // -dd
 	int characterCount(std::fstream& file, std::string fileName); // -c
-	std::string palindrome(std::fstream& file, std::string fileName, int count); // -p
+	void anagram(std::fstream& file, std::string fileName, int count); // -a
+	void palindrome(std::fstream& file, std::string fileName, int count); // -p
+	void allWordsSortInFile(std::fstream& file, std::string fileName); // -s
+	void allWordsUnsortInFile(std::fstream& file, std::string fileName); // -rs
 	void launchFlags(std::string flagsName, int argumentsCount); // flags
 	bool providitedFlags(char *tab[], int argumentsCount);
 	void flagsMenu();
