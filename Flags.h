@@ -20,8 +20,8 @@ public:
 	int characterCount(std::fstream& file, std::string fileName); // -c
 	void anagram(std::fstream& file, std::string fileName, int count); // -a
 	void palindrome(std::fstream& file, std::string fileName, int count); // -p
-	void allWordsSortInFile(std::fstream& file, std::string fileName); // -s
-	void allWordsUnsortInFile(std::fstream& file, std::string fileName); // -rs
+	std::string allWordsSortInFile(std::fstream& file, std::string fileName, int&); // -s
+	std::string allWordsUnsortInFile(std::fstream& file, std::string fileName, int&); // -rs
 	void launchFlags(std::string flagsName, int argumentsCount); // flags
 	bool providitedFlags(char *tab[], int argumentsCount);
 	void flagsMenu();

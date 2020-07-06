@@ -206,5 +206,4 @@ void FileSetting::flagsMenu()
 	std::cout << "10. -s -> wyswietla wszystkie slowa w kolejnosci alfabetycznej\n";
 	std::cout << "10. -rs -> wyswietla wszystkie slowa w kolejnosci odwrotnej niz alfabetyczna\n";
 	std::cout << "11. -o -> flaga powinna znalezc sie na koncu flag. Wszystkie poprzednie flagi zapisuje do nowego pliku\n";
-	std::cout << "12. -i -> \n";
 }
