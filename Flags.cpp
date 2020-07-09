@@ -45,7 +45,7 @@ int FileSetting::digitsInFile(std::fstream& file, std::string fileName)
 	return digitsCount;
 }
 
-int FileSetting::numberInFile(std::fstream& file, std::string fileName)
+int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
 {
 	int numberCount = 0;
 	std::string line;
@@ -95,7 +95,7 @@ void FileSetting::palindrome(std::fstream& file, std::string fileName, int count
 {
 	file.open(fileName, std::ios::in);
 	std::string line;
-	for(int i = 0; i < count;i++)
+	for (int i = 0; i < count; i++)
 	{
 		file >> line;
 		if (isPalindrome(line) == true)
@@ -162,20 +162,20 @@ void FileSetting::allWordsUnsortInFile(std::fstream& file, std::string fileName)
 	file.close();
 }
 
-void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
+/*void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
 {
-	//switch case!
-	/*switch (flagsName)
+	//		switch case!
+	switch (flagsName)
 	{
 	case flags[0]:
-		{
+	{
 
 		break;
-		}
-	}*/
-}
+	}
+	}
+}*/
 
-bool FileSetting::providitedFlags(char *tab[], int argumentsCount)
+bool FileSetting::providitedFlags(char* tab[], int argumentsCount)
 {
 	for (int i = 0; i < argumentsCount; i++)
 	{
