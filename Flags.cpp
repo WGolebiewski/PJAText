@@ -162,19 +162,6 @@ void FileSetting::allWordsUnsortInFile(std::fstream& file, std::string fileName)
 	file.close();
 }
 
-/*void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
-{
-	//		switch case!
-	switch (flagsName)
-	{
-	case flags[0]:
-	{
-
-		break;
-	}
-	}
-}*/
-
 bool FileSetting::providitedFlags(char* tab[], int argumentsCount)
 {
 	for (int i = 0; i < argumentsCount; i++)
