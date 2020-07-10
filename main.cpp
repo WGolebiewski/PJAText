@@ -1,6 +1,6 @@
 ﻿#include "Flags.h"
 
-int to_num(const char* p);
+unsigned long int to_num(const char* p);
 
 int main(int argc, char* argv[])
 {
@@ -32,7 +32,12 @@ int main(int argc, char* argv[])
             }
             else if (argv[i] == flags[1])
             {
-                std::cout << "\nLiczba lini: " << setting.lineCount(file, argv[2]);
+                if (setting.lineCount(file, argv[2]) == 0)
+                    std::cout << "\nLiczba lini: Plik jest pusty!";
+                else
+                {
+                    std::cout << "\nLiczba lini: " << setting.lineCount(file, argv[2]);
+                }
             }
             else if (argv[i] == flags[2])
             {
@@ -50,7 +55,7 @@ int main(int argc, char* argv[])
             {
                 if (i + 1 < argc)
                 {
-                    int result = to_num(argv[i + 1]);
+                    unsigned long int result = to_num(argv[i + 1]);
                     if ((result >= 0) && (result <= setting.wordsCount(file, argv[2])))
                     {
                         i++;
@@ -84,7 +89,7 @@ int main(int argc, char* argv[])
             {
                 if (i + 1 < argc)
                 {
-                    int result = to_num(argv[i + 1]);
+                    unsigned long int result = to_num(argv[i + 1]);
                     if ((result >= 0) && (result <= setting.wordsCount(file, argv[2])))
                     {
                         i++;
@@ -119,7 +124,7 @@ int main(int argc, char* argv[])
                 // I think that is good solution
                 if (i + 1 < argc)
                 {
-                    int result = to_num(argv[i + 1]);
+                    unsigned long int result = to_num(argv[i + 1]);
                     if ((result >= 0) && (result <= setting.wordsCount(file, argv[2])))
                     {
                         i++;
@@ -155,11 +160,11 @@ int main(int argc, char* argv[])
             }
             else if (argv[i] == flags[8])
             {
-				// I think that is good solution
-                int result = to_num(argv[i + 1]);
+                // I think that is good solution
+                unsigned long int result = to_num(argv[i + 1]);
                 if (i + 1 < argc)
                 {
-                    int result = to_num(argv[i + 1]);
+                    unsigned long int result = to_num(argv[i + 1]);
                     if ((result >= 0) && (result <= setting.wordsCount(file, argv[2])))
                     {
                         i++; 
@@ -209,9 +214,9 @@ int main(int argc, char* argv[])
     }
 }
 
-int to_num(const char* p)
+unsigned long int to_num(const char* p)
 {
-    int result = 0;
+    unsigned long int result = 0;
     const int len = strlen(p);
     for (int i = 0; *p; p++, i++)
     {

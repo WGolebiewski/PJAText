@@ -17,7 +17,7 @@ bool FileSetting::isFile(std::fstream& file, std::string fileName)
 
 int FileSetting::wordsCount(std::fstream& file, std::string fileName)
 {
-	int wordsCount = 0;
+	unsigned long int wordsCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (file >> line)
@@ -30,7 +30,7 @@ int FileSetting::wordsCount(std::fstream& file, std::string fileName)
 
 int FileSetting::lineCount(std::fstream& file, std::string fileName)
 {
-	int lineCount = 0;
+	unsigned long int lineCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (std::getline(file, line))
@@ -43,7 +43,7 @@ int FileSetting::lineCount(std::fstream& file, std::string fileName)
 
 int FileSetting::digitsInFile(std::fstream& file, std::string fileName)
 {
-	int digitsCount = 0;
+	unsigned long int digitsCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (file >> line)
@@ -60,7 +60,7 @@ int FileSetting::digitsInFile(std::fstream& file, std::string fileName)
 
 int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
 {
-	int numberCount = 0;
+	unsigned long int numberCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (file >> line)
@@ -77,7 +77,7 @@ int FileSetting::numbersInFile(std::fstream& file, std::string fileName)
 
 int FileSetting::characterCount(std::fstream& file, std::string fileName)
 {
-	int charCount = 0;
+	unsigned long int charCount = 0;
 	std::string line;
 	file.open(fileName, std::ios::in);
 	while (file >> line)
@@ -131,7 +131,7 @@ void FileSetting::allWordsSortInFile(std::fstream& file, std::string fileName)
 	file.open(fileName, std::ios::in);
 	std::vector<std::string>words;
 	std::string line;
-	int temp = 0;
+	unsigned long int temp = 0;
 	while (file >> line)
 	{
 		for (int i = 0; i < line.size(); i++)
