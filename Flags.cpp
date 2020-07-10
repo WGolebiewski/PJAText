@@ -28,6 +28,19 @@ int FileSetting::wordsCount(std::fstream& file, std::string fileName)
 	return wordsCount;
 }
 
+int FileSetting::lineCount(std::fstream& file, std::string fileName)
+{
+	int lineCount = 0;
+	std::string line;
+	file.open(fileName, std::ios::in);
+	while (std::getline(file, line))
+	{
+		lineCount++;
+	}
+	file.close();
+	return lineCount;
+}
+
 int FileSetting::digitsInFile(std::fstream& file, std::string fileName)
 {
 	int digitsCount = 0;
@@ -86,7 +99,8 @@ void FileSetting::anagram(std::fstream& file, std::string fileName, int count)
 	for (int i = 0; i < count; i++)
 	{
 		file >> line;
-		std::cout << std::string(line.rbegin(), line.rend()) << " ";
+		std::sort(line.begin(), line.end());
+		std::cout << line << " ";
 	}
 	file.close();
 }
@@ -161,6 +175,19 @@ void FileSetting::allWordsUnsortInFile(std::fstream& file, std::string fileName)
 	}
 	file.close();
 }
+
+/*void FileSetting::launchFlags(std::string flagsName, int argumentsCount)
+{
+	//		switch case!
+	switch (flagsName)
+	{
+	case flags[0]:
+	{
+
+		break;
+	}
+	}
+}*/
 
 bool FileSetting::providitedFlags(char* tab[], int argumentsCount)
 {

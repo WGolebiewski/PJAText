@@ -21,16 +21,18 @@ int main(int argc, char* argv[])
                 {
                     if ((setting.isFile(file, argv[2])) == true)
                     {
-                        std::cout << "\nOtworzono plik!";
                         i++;
                     }
                     else
+                    {
+                        i++;
                         std::cout << "\nNie znaleziono takiego pliku";
+                    }
                 }
             }
             else if (argv[i] == flags[1])
             {
-                std::cout << "\nLiczba slow: " << setting.wordsCount(file, argv[2]);
+                std::cout << "\nLiczba lini: " << setting.lineCount(file, argv[2]);
             }
             else if (argv[i] == flags[2])
             {
@@ -153,6 +155,7 @@ int main(int argc, char* argv[])
             }
             else if (argv[i] == flags[8])
             {
+                int result = to_num(argv[i + 1]);
                 // I think that is good solution
                 if (i + 1 < argc)
                 {
