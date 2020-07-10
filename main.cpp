@@ -155,8 +155,8 @@ int main(int argc, char* argv[])
             }
             else if (argv[i] == flags[8])
             {
+				// I think that is good solution
                 int result = to_num(argv[i + 1]);
-                // I think that is good solution
                 if (i + 1 < argc)
                 {
                     int result = to_num(argv[i + 1]);
